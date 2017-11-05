@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txt; /*txt kaip kreipsimes i textview*/
     Button pass; /*kaip kreipsimes i mygtuka*/
     Button next;
+    int index = 0;
 
 
     @Override
@@ -37,17 +38,17 @@ public class MainActivity extends AppCompatActivity {
         next = (Button) findViewById(R.id.nextButton);
 
 
+
         pass.setOnClickListener(new View.OnClickListener() { /*ziuri kada paspaudzia mygtuka*/
             @Override
             public void onClick(View view) {
-                Random r = new Random();
-                int index = r.nextInt(zodziai.length); /*isrenka random skaiciu nuo 0 iki array ilgio*/
-                if(zodziai[index] != null) { /*nebaigta cia, noriu kad parinkus zodi jo neimtu*/
+                if(index != zodziai.length) {
                     txt.setText(zodziai[index]);
-
-                }else if(zodziai[index] == null){
-                    txt.setText("Out of words");
+                    index++;
+                }else{
+                    txt.setText("Out of text");
                 }
+
             }
         });
         next.setOnClickListener(new View.OnClickListener() {
