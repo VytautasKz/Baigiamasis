@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Baigiamasis.iml" filepath="$PROJECT_DIR$/Baigiamasis.iml" />
+      <module fileurl="file://D:\Testy\Baigiamasis.iml" filepath="D:\Testy\Baigiamasis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Testy.iml" filepath="$PROJECT_DIR$/Testy.iml" />
       <module fileurl="file://C:\Users\Vartotojas\Desktop\Naujas aplankas (2)\Baigiamasis\Testy.iml" filepath="C:\Users\Vartotojas\Desktop\Naujas aplankas (2)\Baigiamasis\Testy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\Vartotojas\Desktop\Naujas aplankas (2)\Baigiamasis\app\app.iml" filepath="C:\Users\Vartotojas\Desktop\Naujas aplankas (2)\Baigiamasis\app\app.iml" />
