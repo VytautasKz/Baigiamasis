@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     int index = 0;
     int nextd = 0;
     int passid = 0;
+    /*ggkgfjfdlk*/
 
 
     @Override
