@@ -50,28 +50,39 @@ public class MainActivity extends AppCompatActivity {
         pass = (Button) findViewById(R.id.passButton); /*koks pass yra id*/
         next = (Button) findViewById(R.id.nextButton);
 
+        pass.setVisibility(View.VISIBLE);
+        next.setVisibility(View.VISIBLE);
 
         pass.setOnClickListener(new View.OnClickListener() { /*ziuri kada paspaudzia mygtuka*/
             @Override
             public void onClick(View view) {
-                if (index != zodziai.length) {
+                index++;
+                if (index <= zodziai.length) {
                     txt.setText(zodziai[index]);
-                    index++;
                     passid++;
-                } else {
+                    if(zodziai[index] == zodziai[zodziai.length-1]){
+                        txt.setText(zodziai[index]);
+                        index++;
+                        passid++;
+                    }
+                }else if(index > zodziai.length){
                     txt.setText("Out of words");
                 }
-
             }
         });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (index != zodziai.length) {
+                index++;
+                if (index <= zodziai.length) {
                     txt.setText(zodziai[index]);
-                    index++;
                     nextd++;
-                } else {
+                    if(zodziai[index] == zodziai[zodziai.length-1]){
+                        txt.setText(zodziai[index]);
+                        index++;
+                        nextd++;
+                    }
+                }else if(index > zodziai.length){
                     txt.setText("Out of words");
                 }
             }
@@ -99,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(final View view) {
                 starty.setVisibility(View.GONE);
                 game();
-                txt.setText(zodziai[0]);
+                txt.setText(zodziai[index]);
                 new CountDownTimer(10000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
@@ -107,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     public void onFinish() {
+                        ct.setVisibility(View.GONE);
                         txt.setVisibility(View.GONE);
+                        next.setVisibility(View.GONE);
+                        pass.setVisibility(View.GONE);
                         task.setText("Game over \n Press restart \n Passes: " + passid + "\n Correct: " + nextd);
                         rr.setVisibility(View.VISIBLE);
                     }
