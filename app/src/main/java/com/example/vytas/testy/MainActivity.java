@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     TextView sm;
     TextView roundT;
+    TextView textView3;
 
-    final String[] zodziai = {"one", "two", "three", "four", "five", "six", "seven", "eight"};
+    final String[] zodziai = {"Pastatas", "Ligonine", "Prezidente", "Automobilis", "Kompiuteris", "Klaviatura", "Pele", "Programavimas"};
 
     int index = 0;
     int nextd = 0;
@@ -55,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         index = 0;
         passid = 0;
         nextd = 0;
-        modeT = 0;
 
         txt = findViewById(R.id.textView); /*koks txt yra id*/
         pass = findViewById(R.id.passButton); /*koks pass yra id*/
@@ -118,13 +118,12 @@ public class MainActivity extends AppCompatActivity {
 
         game();
         txt.setText(zodziai[index]);
-        new CountDownTimer(10000, 1000) {
+        new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 ct.setText("Round ends in: " + millisUntilFinished / 1000);
                 if (txt.getText().toString().matches("Out of words")) {
                     ct.setVisibility(View.GONE);
-                    ct = txt;
                 }
             }
 
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (mode == true){
                     if(modeT == 0) {
                         task.setText("Game over \nPress restart \n Team 1 points: \nPasses: " + passid + "\nCorrect: " + nextd);
-                    } else if (modeT == 2) {
+                    } else if (modeT == 1) {
                         task.setText("Game over \nPress restart \n Team 2 points: \nPasses: " + passid2 + "\nCorrect: " + nextd2 +"\n" +countPoint());
                         rr.setVisibility(View.VISIBLE);
                     }
@@ -152,7 +151,8 @@ public class MainActivity extends AppCompatActivity {
                             roundT.setText("Team 2 get ready! \n Round begins in: " +millisUntilFinished /1000);
                         }
                         public void onFinish(){
-                            txt.setVisibility(View.GONE);
+
+//                            txt.setVisibility(View.GONE);
                             roundT.setVisibility(View.GONE);
                             modeT++;
                             count();
@@ -181,7 +181,11 @@ public class MainActivity extends AppCompatActivity {
                 new CountDownTimer(5000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
-                        txt.setText("Game begins in: " + millisUntilFinished / 1000);
+                        if(mode == true){
+                            txt.setText("You rebel. I warned you. \n Game begins in: " + millisUntilFinished / 1000);
+                        } else {
+                            txt.setText("Game begins in: " + millisUntilFinished / 1000);
+                        }
                     }
 
                     public void onFinish() {
@@ -198,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
         button5 = findViewById(R.id.button5);
         button = findViewById(R.id.button);
         sm = findViewById(R.id.sm);
+        textView3 = findViewById(R.id.textView3);
 
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
                 button5.setVisibility(View.GONE);
                 button.setVisibility(View.GONE);
                 sm.setVisibility(View.GONE);
+                textView3.setVisibility(View.GONE);
                 countdown();
             }
         });
@@ -217,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                 button5.setVisibility(View.GONE);
                 button.setVisibility(View.GONE);
                 sm.setVisibility(View.GONE);
+                textView3.setVisibility(View.GONE);
                 countdown();
             }
         });
