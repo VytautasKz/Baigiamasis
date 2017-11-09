@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else if (index > zodziai.length) {
                     txt.setText("Out of words");
+
                 }
             }
         });
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 ct.setText("Round ends in: " + millisUntilFinished / 1000);
                 if (txt.getText().toString().matches("Out of words")) {
                     ct.setVisibility(View.GONE);
+                    ct = txt;
                 }
             }
 
